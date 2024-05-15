@@ -38,8 +38,7 @@ class CollectionAdapter {
 
     async getCookiesContaining(message) {
         const collection = await this.#collection();
-        const lower = message.toLowerCase();
-        return await collection.find({ fortune: { $regex: lower } }).toArray();
+        return await collection.find({ fortune: { $regex: message } }).toArray();
     }
 
     async insertCookie(cookie) {
