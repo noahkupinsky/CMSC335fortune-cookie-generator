@@ -117,32 +117,3 @@ app.get("/browse", (request, response) => {
 async function contentToCookies(content) {
     return cookies = content ? await db.getCookiesContaining(content) : await db.getAllCookies();
 }
-
-app.post("/adminGPA", (request, response) => {
-    const { gpa } = request.body;
-    db.getApplicationsWithGPA(gpa).then((applications) => {
-        const table = applications_to_table(applications);
-        response.render("adminGPAData", { table: table });
-    })
-})
-
-/* REMOVE ALL APPLICATIONS */
-
-app.get("/removeAll", (request, response) => {
-    response.render("removeAll", { portNumber: portNumber });
-})
-
-app.post("/removeAll", (request, response) => {
-    db.removeAllApplications().then((numRemoved) => {
-        response.render("removeAllData", { numRemoved: numRemoved });
-    });
-})
-
-
-function applications_to_table(applications) {
-    let table = "<table><tr><th>Name</th><th>GPA</th></tr>";
-    for (const a of applications)
-        table += `<tr><td>${a.name}</td><td>${a.gpa}</td></tr>`;
-    table += "</table>";
-    return table
-}
