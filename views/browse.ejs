@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Fortune Cookies</title>
+    <link type="text/css" rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <div id="bodyContainer">
+      <a href="/">HOME</a>
+      <h1>Browse Fortune Cookies</h1>
+      <div class="column">
+        <div class="row">
+          <a href="/browse"><button class="inline">All Cookies</button></a>
+          <a id="fortuneIncludesBtn" href="#">
+            <button class="inline">Fortune Includes:</button>
+          </a>
+          <input
+            type="text"
+            id="contentInput"
+            class="text-field"
+            placeholder="Enter keyword"
+          />
+        </div>
+        <br />
+        <div class="cookie-container"><%- cookies %></div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("fortuneIncludesBtn")
+        .addEventListener("click", function () {
+          var content = document.getElementById("contentInput").value;
+          var url = "/browse?content=" + encodeURIComponent(content);
+          this.href = url;
+        });
+    </script>
+  </body>
+</html>

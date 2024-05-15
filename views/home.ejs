@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fortune Cookie Generator</title>
+    <link type="text/css" rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <div id="bodyContainer">
+      <h1>Fortune Cookie Generator</h1>
+      <img src="/static/cookie.jpeg" alt="cookie" style="width: 100%" />
+      <div class="column">
+        <a href="/generate">
+          <button class="block">Generate Fortune Cookie</button>
+        </a>
+        <a href="/browse">
+          <button class="block">Browse Fortune Cookies</button>
+        </a>
+        <form action="/delete" method="post">
+          <div class="row">
+            <button class="inline" type="submit" style="color: deeppink">
+              Delete All Fortune Cookies
+            </button>
+            <div class="column">
+              <br />
+              <div class="column">
+                <strong>Password</strong>
+              </div>
+              <input type="password" id="password" name="password" required />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

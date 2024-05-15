@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Fortune Cookie</title>
+    <link type="text/css" rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <body>
+    <div id="bodyContainer">
+      <a href="/">HOME</a>
+      <h1>Fortune Cookie</h1>
+      <form action="/save" method="post">
+        <p>
+          <strong>Lucky Numbers:</strong>
+          <br />
+          <input
+            size="60"
+            type="text"
+            id="numbers"
+            name="numbers"
+            class="text"
+            placeholder="Enter numbers separated by commas"
+            value="<%- numbers %>"
+            required
+          />
+        </p>
+        <p>
+          <strong>Fortune:</strong>
+          <br />
+          <textarea id="fortune" rows="5" cols="60" name="fortune">
+<%- fortune %></textarea
+          >
+        </p>
+        <button class="block" type="submit">Save Fortune Cookie</button>
+      </form>
+      <form action="/generate" method="get">
+        <button class="block" type="submit">New Fortune Cookie</button>
+      </form>
+    </div>
+  </body>
+</html>
